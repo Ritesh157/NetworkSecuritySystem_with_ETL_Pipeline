@@ -25,3 +25,16 @@ class DataIngestionConfig:
         self.train_test_split_ratio: float = training_pipeline.DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO    # 0.2 (20% test data)
         self.collection_name: str = training_pipeline.DATA_INGESTION_COLLECTION_NAME            # NetworkData
         self.database_name: str = training_pipeline.DATA_INGESTION_DATABASE_NAME                # RITESHAI
+
+# This class defines all file paths and folders needed for data validation step.
+# It tells the pipeline: Where to store valid data, Where to store invalid data, Where to save drift report
+class DataValidationConfig:
+    def __init__(self, training_pipeline_config: TrainingPipelineConfig):
+        self.data_validation_dir: str = os.path.join(training_pipeline_config.artifacts_dir, training_pipeline.DATA_VALIDATION_DIR_NAME)    # Artifacts/<timestamp>/data_validation/
+        self.valid_data_dir: str = os.path.join(self.data_validation_dir, training_pipeline.DATA_VALIDATION_VALID_DIR)      # Artifacts/<timestamp>/data_validation/validated/
+        self.invalid_data_dir: str = os.path.join(self.data_validation_dir, training_pipeline.DATA_VALIDATION_INVALID_DIR)  # Artifacts/<timestamp>/data_validation/invalid/
+        self.valid_train_file_path: str = os.path.join(self.valid_data_dir, training_pipeline.TRAIN_FILE_NAME)              # Artifacts/.../data_validation/validated/train.csv
+        self.valid_test_file_path: str = os.path.join(self.valid_data_dir, training_pipeline.TEST_FILE_NAME)                # Artifacts/.../data_validation/validated/test.csv
+        self.invalid_train_file_path: str = os.path.join(self.invalid_data_dir, training_pipeline.TRAIN_FILE_NAME)          # Artifacts/.../data_validation/invalid/train.csv
+        self.invalid_test_file_path: str = os.path.join(self.invalid_data_dir, training_pipeline.TEST_FILE_NAME)            # Artifacts/.../data_validation/invalid/test.csv
+        self.drift_report_file_path: str = os.path.join(self.data_validation_dir, training_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR, training_pipeline.DATA_VALIDATION_DIR_REPORT_FILE_NAME) # Artifacts/<timestamp>/data_validation/drift_report/report.yaml
