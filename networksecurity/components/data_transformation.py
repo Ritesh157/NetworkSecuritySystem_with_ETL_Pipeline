@@ -33,7 +33,7 @@ class DataTransformation:
         except Exception as e:
             raise NetworkSecurityException(e, sys)
         
-    def get_data_transforer_object(cls) -> Pipeline:
+    def get_data_transformer_object(cls) -> Pipeline:
         """
         It initialize a KNNImputer object with the parameter specified in the training_pipeline.py file and return
         a Pipeline object with the KNNImputer object as the first step.
@@ -71,7 +71,7 @@ class DataTransformation:
             target_feature_test_df = target_feature_test_df.replace(-1, 0)
 
             # Initialise preprocessor
-            preprocessor = self.get_data_transforer_object()
+            preprocessor = self.get_data_transformer_object()
 
             preprocessor_object = preprocessor.fit(input_feature_train_df)
             transformed_input_train_feature = preprocessor_object.transform(input_feature_train_df)
