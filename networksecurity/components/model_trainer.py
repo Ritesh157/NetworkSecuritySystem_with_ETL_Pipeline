@@ -26,6 +26,13 @@ from sklearn.ensemble import (
 )
 import mlflow
 
+import dagshub
+
+# repo_owner => DagsHub username
+# repo_name => Project repository name
+# mlflow=True => Automatically connects MLflow to DagsHub, Sets remote tracking URI, Logs go to cloud instead of local
+dagshub.init(repo_owner='riteshkumar8888', repo_name='NetworkSecuritySystem_with_ETL_Pipeline', mlflow=True)
+
 # Input to this file: DataTransformationArtifact (contains: transformed_train.npy, transformed_test.npy)
 # Output of this file: ModelTrainerArtifact (contains: trained model path, train metrics, test metrics)
 class ModelTrainer:
@@ -36,15 +43,19 @@ class ModelTrainer:
         except Exception as e:
             raise NetworkSecurityException(e, sys)
     
+    # This function logs model and metrics
     def track_mlflow(self, best_model, classificationmetric):
-        with mlflow.start_run():
-            f1_score = classificationmetric.f1_score
+        with mlflow.start_run():                                # creates a new experiment run. Everything inside is logged.
+            f1_score = classificationmetric.f1_score            # Extract Metrics which commes from ClassificationMetricArtifact
             precision_score = classificationmetric.precision_score
             recall_score = classificationmetric.recall_score
 
+            # Log Metrics. MLflow UI will show f1_score, precision, recall_score
             mlflow.log_metric("f1_score", f1_score)
             mlflow.log_metric("precision", precision_score)
             mlflow.log_metric("recall_score", recall_score)
+
+            # Log Model. Saves trained Model into MLflow
             mlflow.sklearn.log_model(best_model, "model")
 
     
@@ -117,6 +128,9 @@ class ModelTrainer:
 
         Network_Model = NetworkModel(preprocessor=preprocessor, model=best_model)
         save_object(self.model_trainer_config.trained_model_file_path, obj=Network_Model)
+
+        # Model pusher
+        save_object("final_models/model.pkl", best_model)
 
         # Model Trainer Artifact
         model_trainer_artifact = ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path, 
