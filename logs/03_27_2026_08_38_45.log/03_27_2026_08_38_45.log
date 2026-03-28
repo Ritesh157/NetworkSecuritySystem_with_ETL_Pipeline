@@ -1,6 +1,0 @@
-[ 2026-03-27 08:38:48,620 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
-[ 2026-03-27 08:38:48,620 ] 107 dagshub - INFO - Accessing as riteshkumar8888
-[ 2026-03-27 08:38:49,498 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/riteshkumar8888/NetworkSecuritySystem_with_ETL_Pipeline "HTTP/1.1 200 OK"
-[ 2026-03-27 08:38:50,443 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
-[ 2026-03-27 08:38:50,443 ] 107 dagshub - INFO - Initialized MLflow to track repo "riteshkumar8888/NetworkSecuritySystem_with_ETL_Pipeline"
-[ 2026-03-27 08:38:50,443 ] 107 dagshub - INFO - Repository riteshkumar8888/NetworkSecuritySystem_with_ETL_Pipeline initialized!

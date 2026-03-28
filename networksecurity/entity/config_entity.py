@@ -13,6 +13,7 @@ class TrainingPipelineConfig:
         self.pipeline_name = training_pipeline.PIPELINE_NAME                # NetworkSecurity
         self.artifacts_name = training_pipeline.ARTIFACT_DIR                # Artifacts
         self.artifacts_dir = os.path.join(self.artifacts_name, timestamp)   # Creates a unique folder for each run. Ex: Artifacts/03_18_2026_07_45_30
+        self.model_dir = os.path.join("final_models")
         self.timestamp: str = timestamp                                     # Stores timestamp for reuse
 
 # This class defines configuration for data ingestion step.

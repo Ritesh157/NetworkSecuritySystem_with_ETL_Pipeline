@@ -72,4 +72,4 @@ MODEL_TRAINER_TRAINED_MODEL_NAME: str = "model.pkl"     # Name of saved model fi
 MODEL_TRAINER_EXPECTED_SCORE: float = 0.6           # Minimum acceptable model performance. If accuracy < 0.6 → reject model ❌ If accuracy ≥ 0.6 → accept model ✅
 MODEL_TRAINER_OVER_FIITING_UNDER_FITTING_THRESHOLD: float = 0.05    # Used to check model quality. Difference between train score and test score. If difference > 0.05 → model is bad
 
-TRAINING_BUCKET_NAME = "networksecurity"        # Used for storing model in cloud. Used in: AWS S3, Google Cloud Storage
+TRAINING_BUCKET_NAME = "networksecuritys3bucket2026"        # Used for storing model in cloud. Used in: AWS S3, Google Cloud Storage
