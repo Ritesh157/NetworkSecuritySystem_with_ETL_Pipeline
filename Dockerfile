@@ -1,5 +1,7 @@
+# Uses a lightweight Python image
 FROM python:3.10-slim
 
+# Inside container, all operation happen in /app
 WORKDIR /app
 
 # Copy requirements first (better layer caching)
