@@ -1,15 +1,5 @@
 # 🚀 Network Security System with End-to-End MLOps Pipeline
 
-![Build](https://img.shields.io/github/actions/workflow/status/riteshkumar8888/NetworkSecuritySystem_with_ETL_Pipeline/main.yml?branch=main)
-![Docker](https://img.shields.io/badge/docker-ready-blue?logo=docker)
-![MLflow](https://img.shields.io/badge/MLflow-tracking-blue?logo=mlflow)
-![AWS](https://img.shields.io/badge/AWS-EC2%20%7C%20S3%20%7C%20ECR-orange?logo=amazon-aws)
-![FastAPI](https://img.shields.io/badge/FastAPI-API-green?logo=fastapi)
-![Python](https://img.shields.io/badge/python-3.10-blue?logo=python)
-![License](https://img.shields.io/badge/license-MIT-green)
-
----
-
 ## 📌 Project Overview
 
 This project builds a **Network Security Detection System** using a production-ready ML pipeline. It includes:
@@ -268,15 +258,6 @@ http://localhost:8000/docs
 ✔ CI/CD Automation
 ✔ Dockerized Deployment
 ✔ AWS Cloud Integration
-
----
-
-## 🚀 Future Improvements
-
-* Add Authentication
-* Kubernetes Deployment (EKS)
-* Monitoring (Prometheus/Grafana)
-* Real-time data pipeline
 
 ---
 
